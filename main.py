@@ -13,7 +13,7 @@ def convert_to_mp3(video_filename, output_directory):
     video = VideoFileClip(video_filename)
     mp3_filename = os.path.splitext(video_filename)[0] + ".mp3"
     mp3_filepath = os.path.join(output_directory, mp3_filename)
-    mp3_filepath = mp3_filepath.replace(" ", "_")  # Replace spaces in filename
+    mp3_filepath = mp3_filepath.replace(" ", "_")
     audio = video.audio
     audio.write_audiofile(mp3_filepath)
     video.close()
@@ -22,12 +22,12 @@ def convert_to_mp3(video_filename, output_directory):
 def convert_to_mp4(video_filename, output_directory):
     mp4_filename = os.path.splitext(video_filename)[0] + ".mp4"
     mp4_filepath = os.path.join(output_directory, mp4_filename)
-    mp4_filepath = mp4_filepath.replace(" ", "_")  # Replace spaces in filename
+    mp4_filepath = mp4_filepath.replace(" ", "_")
     os.rename(video_filename, mp4_filepath)
     return mp4_filepath
 
 def get_file_size(filepath):
-    return os.path.getsize(filepath) / (1024 * 1024)  # Convert bytes to megabytes
+    return os.path.getsize(filepath) / (1024 * 1024)
 
 def main():
     youtube_url = input("Enter YouTube video URL: ")
